@@ -3,7 +3,6 @@ import moment from 'moment';
 import GithubApiHelper from './github-api-helper';
 import exportAsJson from './export-as-json';
 import searchGoogleSpreadsheet from './search-google-spreadsheet';
-import generateNewMetaForSheet from './generate-new-meta-for-sheet';
 import AcceptedSheetColumns from '../../meta/accepted-proposals-sheet/columns';
 import OfficialGitHubLabels from '../../meta/github/official-labels';
 
