@@ -1,0 +1,19 @@
+extends: "./node_modules/mofo-style/.eslintrc.yaml"
+
+env:
+  es6: true
+  node: true
+  browser: true
+
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  sourceType: "module"
+
+rules:
+  newline-after-var: [0]
+  indent: [2, 2, {"SwitchCase": 1}]
+  camelcase: [1, properties: "always"]
+  curly: [0]
+  quotes: [1, "backtick", { "avoidEscape": true }]
+  dot-notation: [1, { "allowPattern": "^[a-z]+(_[a-z]+)+$" }]

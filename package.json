@@ -1,0 +1,49 @@
+{
+  "name": "mozfest-github-to-gsheet",
+  "version": "0.0.1",
+  "description": "Script used for (1) combining information on MozFest 2018 program repo with the master Google Spreadsheet of all proposals (2) and porting the combined info to a new Google Spreadsheet.",
+  "main": "app.js",
+  "scripts": {
+    "app": "node dist/scripts/app.js",
+    "start": "npm run build && run-p app watch:**",
+    "build": "babel src --out-dir dist",
+    "watch:js": "chokidar 'src/scripts/**/*.js' -c 'run-s build app'",
+    "test": "run-s test:**",
+    "test:js": "eslint --config .eslintrc.yaml \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmmavis/mozfest-github-to-gsheet.git"
+  },
+  "author": "Mavis Ou (https://github.com/mmmavis)",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mmmavis/mozfest-github-to-gsheet/issues"
+  },
+  "homepage": "https://github.com/mmmavis/mozfest-github-to-gsheet#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "chalk": "^2.1.0",
+    "google-spreadsheet": "^2.0.5",
+    "json-2-csv": "^2.2.1",
+    "jsonfile": "^4.0.0",
+    "lorem-ipsum": "^1.0.5",
+    "moment": "^2.22.2",
+    "npm-run-all": "^4.0.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "chokidar": "^2.0.4",
+    "chokidar-cli": "^1.2.0",
+    "dotenv": "^6.0.0",
+    "eslint": "^5.4.0",
+    "mofo-style": "^2.4.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
