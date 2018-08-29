@@ -26,5 +26,8 @@ export default {
     new Label(`[LANG] Other`, `Other`),
     new Label(`[LANG] Portuguese`, `Portuguese`),
     new Label(`[LANG] Spanish`, `Spanish`)
+  ],
+  productionflagged: [
+    new Label(`[Production] Flagged`, `Flagged`)
   ]
 };

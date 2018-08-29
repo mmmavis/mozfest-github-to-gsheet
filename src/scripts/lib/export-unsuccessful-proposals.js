@@ -32,10 +32,10 @@ export default function(githubOwner, githubRepo, searchQualifiers, cb) {
       if (sheetError) console.log(`sheetError`, sheetError);
 
       let formattedMatchedProposals = matchedRows.map(row => {
-        return MatchedProposalFormatter.formatAcceptedProposal(row, uuidMap[row.uuid]);
+        return MatchedProposalFormatter.formatUnsuccessfulProposal(row, uuidMap[row.uuid]);
       });
 
-      let logFileMeta = createLogFileMeta(`accepted-proposals`, `.json`);
+      let logFileMeta = createLogFileMeta(`unsuccessful-proposals`, `.json`);
       let report = {
         "api_call_made": endpointInfo,
         timestamp: logFileMeta.timestampInLocalTime,
@@ -46,7 +46,7 @@ export default function(githubOwner, githubRepo, searchQualifiers, cb) {
         },
         "matched_github_issues": ghMatchedIssues,
         "matched_spreadsheet_rows": matchedRows,
-        "formatted_accepted_proposals": formattedMatchedProposals
+        "formatted_unsuccessful_proposals": formattedMatchedProposals
       };
 
       exportAsJson(report, logFileMeta.filePath, (jsonFileErr) => {
