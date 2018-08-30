@@ -1,6 +1,7 @@
-import exportUnsuccessfulProposals from './lib/export-unsuccessful-proposals';
+import findAndExportMatchedProposals from './lib/export-matched-proposals';
 import exportAsCsv from './lib/export-as-csv';
 import createLogFileMeta from './lib/create-log-file-meta';
+import MatchedProposalFormatter from './lib/matched-proposal-formatter';
 
 /**
  * This callback type is called `requestCallback`.
@@ -30,14 +31,19 @@ export default function(githubOwner, githubRepo, cb) {
     `author:mozfest-bot`
   ];
 
-  exportUnsuccessfulProposals(githubOwner, githubRepo, SEARCH_QUALIFIERS, (error, formattedProposals) => {
-    if (error) cb(error);
+  findAndExportMatchedProposals(
+    `unsuccessful-proposals`,
+    SEARCH_QUALIFIERS,
+    MatchedProposalFormatter.formatUnsuccessfulProposal,
+    (error, formattedProposals) => {
+      if (error) cb(error);
 
-    // export formattedProposals into CSV format so we can import the file to Google Spreadsheet
-    let logFileMeta = createLogFileMeta(`unsuccessful-proposals-for-gs-import`, `.csv`);
+      // export formattedProposals into CSV format so we can import the file to Google Spreadsheet
+      let logFileMeta = createLogFileMeta(`unsuccessful-proposals-for-gs-import`, `.csv`);
 
-    exportAsCsv(formattedProposals, logFileMeta.filePath, (exportCsvError) => {
-      cb(exportCsvError);
-    });
-  });
+      exportAsCsv(formattedProposals, logFileMeta.filePath, (exportCsvError) => {
+        cb(exportCsvError);
+      });
+    }
+  );
 }

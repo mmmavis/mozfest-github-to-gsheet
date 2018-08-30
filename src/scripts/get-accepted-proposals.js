@@ -1,6 +1,7 @@
-import exportAcceptedProposals from './lib/export-accepted-proposals';
+import findAndExportMatchedProposals from './lib/export-matched-proposals';
 import exportAsCsv from './lib/export-as-csv';
 import createLogFileMeta from './lib/create-log-file-meta';
+import MatchedProposalFormatter from './lib/matched-proposal-formatter';
 
 /**
  * This callback type is called `requestCallback`.
@@ -29,14 +30,19 @@ export default (githubOwner, githubRepo, cb) => {
     `author:mozfest-bot`
   ];
 
-  exportAcceptedProposals(githubOwner, githubRepo, SEARCH_QUALIFIERS, (error, formattedProposals) => {
-    if (error) cb(error);
+  findAndExportMatchedProposals(
+    `accepted-proposals`,
+    SEARCH_QUALIFIERS,
+    MatchedProposalFormatter.formatAcceptedProposal,
+    (error, formattedProposals) => {
+      if (error) cb(error);
 
-    // export formattedProposals into CSV format so we can import the file to Google Spreadsheet
-    let logFileMeta = createLogFileMeta(`accepted-proposals-for-gs-import`, `.csv`);
+      // export formattedProposals into CSV format so we can import the file to Google Spreadsheet
+      let logFileMeta = createLogFileMeta(`accepted-proposals-for-gs-import`, `.csv`);
 
-    exportAsCsv(formattedProposals, logFileMeta.filePath, (exportCsvError) => {
-      cb(exportCsvError);
-    });
-  });
+      exportAsCsv(formattedProposals, logFileMeta.filePath, (exportCsvError) => {
+        cb(exportCsvError);
+      });
+    }
+  );
 };
