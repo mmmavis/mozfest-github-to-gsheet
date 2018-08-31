@@ -34,13 +34,13 @@ export default (githubOwner, githubRepo, cb) => {
     `accepted-proposals`,
     SEARCH_QUALIFIERS,
     MatchedProposalFormatter.formatAcceptedProposal,
-    (error, formattedProposals) => {
+    (error, report) => {
       if (error) cb(error);
 
       // export formattedProposals into CSV format so we can import the file to Google Spreadsheet
       let logFileMeta = createLogFileMeta(`accepted-proposals-for-gs-import`, `.csv`);
 
-      exportAsCsv(formattedProposals, logFileMeta.filePath, (exportCsvError) => {
+      exportAsCsv(report.formatted_matched_proposals, logFileMeta.filePath, (exportCsvError) => {
         cb(exportCsvError);
       });
     }

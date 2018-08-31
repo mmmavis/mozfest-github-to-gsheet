@@ -3,7 +3,6 @@ import exportAsJson from './export-as-json';
 import createLogFileMeta from './create-log-file-meta';
 import searchGoogleSpreadsheet from './search-google-spreadsheet';
 
-
 export default function(proposalType = ``, searchQualifiers, formatProposal, cb) {
   GithubApiHelper.search(`issues`, { q: searchQualifiers.join(` `) }, (error, ghMatchedIssues, endpointInfo) => {
     // GitHub template: **[ UUID ]** __uuid__
@@ -57,7 +56,7 @@ export default function(proposalType = ``, searchQualifiers, formatProposal, cb)
           cb(jsonFileErr);
         }
 
-        cb(null, formattedMatchedProposals);
+        cb(null, report);
       });
     });
   });
