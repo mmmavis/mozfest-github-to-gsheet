@@ -1,13 +1,11 @@
-import dotenv from 'dotenv';
 import request from 'request';
+import getEnvVars from './get-env-vars';
 
-dotenv.config();
-dotenv.config({path: `default.env`});
-
+const ENV_VARS = getEnvVars();
 const GITHUB_API_BASE = `https://api.github.com`;
-const GITHUB_OWNER = process.env.GITHUB_OWNER;
-const GITHUB_REPO = process.env.GITHUB_REPO;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_OWNER = ENV_VARS.GITHUB_OWNER;
+const GITHUB_REPO = ENV_VARS.GITHUB_REPO;
+const GITHUB_TOKEN = ENV_VARS.GITHUB_TOKEN;
 
 function traverseWithPagination(endpoint, params, keyToReturn, matchedItems = [], callback) {
   let combinedParams = Object.assign({
