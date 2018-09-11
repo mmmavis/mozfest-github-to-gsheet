@@ -6,7 +6,7 @@
   "scripts": {
     "app": "node dist/scripts/app.js",
     "start": "npm run build && run-p app watch:**",
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist --copy-files",
     "watch:js": "chokidar 'src/scripts/**/*.js' -c 'run-s build app'",
     "test": "run-s test:**",
     "test:js": "eslint --config .eslintrc.yaml \"src/**/*.js\""
@@ -30,7 +30,8 @@
     "lorem-ipsum": "^1.0.5",
     "moment": "^2.22.2",
     "npm-run-all": "^4.0.2",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
