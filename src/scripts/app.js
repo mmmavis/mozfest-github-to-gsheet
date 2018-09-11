@@ -1,15 +1,11 @@
-import dotenv from 'dotenv';
+// import getEnvVars from './lib/get-env-vars';
 // import getAllGithubIssues from './get-all-github-issues';
 // import getUnsuccessfulProposals from './get-unsuccessful-proposals';
 // import getAcceptedProposals from './get-accepted-proposals';
 // import createRandomGithubTickets from './create-random-github-tickets';
 // import GithubApiHelper from './lib/github-api-helper';
 
-// load .env (process.env keys that are already set via the host environment (eg: Heroku) won't be changed)
-dotenv.config();
-
-// load default.env so that anything didn't get set in .env or the host environment will get a default value
-dotenv.config({path: `default.env`});
+// const ENV_VARS = getEnvVars();
 
 
 // GithubApiHelper.getRateLimit((error, response, endpointInfo) => {
@@ -17,18 +13,17 @@ dotenv.config({path: `default.env`});
 // });
 
 
-
 // createRandomGithubTickets(10);
 
 
-// getUnsuccessfulProposals(process.env.GITHUB_OWNER, process.env.GITHUB_REPO, (error) => {
+// getUnsuccessfulProposals(ENV_VARS.GITHUB_OWNER, ENV_VARS.GITHUB_REPO, (error) => {
 //   if (error) console.log(error);
 // });
 
-// getAcceptedProposals(process.env.GITHUB_OWNER, process.env.GITHUB_REPO, (error) => {
+// getAcceptedProposals(ENV_VARS.GITHUB_OWNER, ENV_VARS.GITHUB_REPO, (error) => {
 //   if (error) console.log(error);
 // });
 
-// getAllGithubIssues(process.env.GITHUB_OWNER, process.env.GITHUB_REPO, (error) => {
+// getAllGithubIssues(ENV_VARS.GITHUB_OWNER, ENV_VARS.GITHUB_REPO, (error) => {
 //   if (error) console.log(error);
 // });

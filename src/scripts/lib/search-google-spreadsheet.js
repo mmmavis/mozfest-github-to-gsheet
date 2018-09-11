@@ -1,17 +1,15 @@
 import GoogleSpreadsheet from 'google-spreadsheet';
-import dotenv from 'dotenv';
+import getEnvVars from './get-env-vars';
 
-dotenv.config();
-dotenv.config({path: `default.env`});
-
-const GOOGLE_API_CLIENT_EMAIL_2018 = process.env.GOOGLE_API_CLIENT_EMAIL_2018;
-const GOOGLE_API_PRIVATE_KEY_2018 = process.env.GOOGLE_API_PRIVATE_KEY_2018;
-const GOOGLE_SPREADSHEET_ID = process.env.TEST_GOOGLE_SPREADSHEET_ID;
+const ENV_VARS = getEnvVars();
+const GOOGLE_API_CLIENT_EMAIL_2018 = ENV_VARS.GOOGLE_API_CLIENT_EMAIL_2018;
+const GOOGLE_API_PRIVATE_KEY_2018 = ENV_VARS.GOOGLE_API_PRIVATE_KEY_2018;
+const ALL_PROPOSALS_GOOGLE_SPREADSHEET_ID = ENV_VARS.ALL_PROPOSALS_GOOGLE_SPREADSHEET_ID;
 
 export default function(sharedKeyInfo, callback) {
   // sharedKeyInfo = { name: name of the shared key, values: array of values }
 
-  var sheet = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID);
+  var sheet = new GoogleSpreadsheet(ALL_PROPOSALS_GOOGLE_SPREADSHEET_ID);
 
   // line breaks are essential for the private key.
   // if reading this private key from env var this extra replace step is a MUST
