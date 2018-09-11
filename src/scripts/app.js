@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+// import getAllGithubIssues from './get-all-github-issues';
 // import getUnsuccessfulProposals from './get-unsuccessful-proposals';
 // import getAcceptedProposals from './get-accepted-proposals';
 // import createRandomGithubTickets from './create-random-github-tickets';
@@ -25,5 +26,9 @@ dotenv.config({path: `default.env`});
 // });
 
 // getAcceptedProposals(process.env.GITHUB_OWNER, process.env.GITHUB_REPO, (error) => {
+//   if (error) console.log(error);
+// });
+
+// getAllGithubIssues(process.env.GITHUB_OWNER, process.env.GITHUB_REPO, (error) => {
 //   if (error) console.log(error);
 // });
