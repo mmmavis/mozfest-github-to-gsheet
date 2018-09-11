@@ -18,7 +18,7 @@ let columns = {
   // meta from "all proposals spreadsheet" that we wanna keep
   allProposalsSheet: [
     new Meta(`uuid`, `uuid`, (oldValue) => {
-      return `hello-${oldValue}`;
+      return `${oldValue}`;
     }),
     new Meta(`githubissuenumber`, `githubissuenumber`, (oldValue) => {
       return oldValue;
