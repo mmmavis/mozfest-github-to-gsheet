@@ -18,8 +18,10 @@ export default function(content, filePath, cb) {
     });
   }, {
     delimiter: {
-      field: `,\t`,
+      field: `\t`,
       wrap: `"`
-    }
+    },
+    checkSchemaDifferences: false,
+    emptyFieldValue: ``
   });
 }

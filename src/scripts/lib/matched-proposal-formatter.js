@@ -65,7 +65,7 @@ export default {
     AcceptedSheetColumns.newColumns.forEach(meta => {
       let newName = meta.newName;
 
-      if (newName === `format` || newName === `l10nlanguage`) {
+      if (newName === `format` || newName === `l10nlanguage` || newName === `productionflagged` || newName === `productionedited`) {
         let officialLabels = OfficialGitHubLabels[newName];
         let oLabelOldNames = officialLabels.map(label => label.oldName);
 

@@ -49,9 +49,6 @@ let columns = {
     new Meta(`otherfacilitator1email`, `otherfacilitator1email`, (oldValue) => {
       return oldValue;
     }),
-    new Meta(`otherfacilitator1githubhandle`, `otherfacilitator1githubhandle`, (oldValue) => {
-      return oldValue;
-    }),
     new Meta(`otherfacilitator2firstname`, `otherfacilitator2firstname`, (oldValue) => {
       return oldValue;
     }),
@@ -59,9 +56,6 @@ let columns = {
       return oldValue;
     }),
     new Meta(`otherfacilitator2email`, `otherfacilitator2email`, (oldValue) => {
-      return oldValue;
-    }),
-    new Meta(`otherfacilitator2githubhandle`, `otherfacilitator2githubhandle`, (oldValue) => {
       return oldValue;
     }),
     new Meta(`otherfacilitator3firstname`, `otherfacilitator3firstname`, (oldValue) => {
@@ -73,31 +67,13 @@ let columns = {
     new Meta(`otherfacilitator3email`, `otherfacilitator3email`, (oldValue) => {
       return oldValue;
     }),
-    new Meta(`otherfacilitator3githubhandle`, `otherfacilitator3githubhandle`, (oldValue) => {
-      return oldValue;
-    }),
-    new Meta(`l10nwish`, `l10nwish`, (oldValue) => {
-      return oldValue;
-    }),
     new Meta(`l10nlanguage`, `l10nlanguage`, (oldValue) => {
-      return oldValue;
-    }),
-    new Meta(`l10nsupport`, `l10nsupport`, (oldValue) => {
       return oldValue;
     }),
     new Meta(`sessionname`, `sessionname`, (oldValue) => {
       return oldValue;
     }),
     new Meta(`description`, `description`, (oldValue) => {
-      return oldValue;
-    }),
-    new Meta(`outcome`, `outcome`, (oldValue) => {
-      return oldValue;
-    }),
-    new Meta(`afterfestival`, `afterfestival`, (oldValue) => {
-      return oldValue;
-    }),
-    new Meta(`numsofparticipants`, `numsofparticipants`, (oldValue) => {
       return oldValue;
     }),
     new Meta(`format`, `format`, (oldValue) => {
@@ -165,12 +141,12 @@ let columns = {
     new Meta(null, `format`, () => {
       return ``;
     }),
-    new Meta(null, `l10nlanguage`, () => {
+    new Meta(null, `productionflagged`, () => {
       return ``;
     }),
-    // new Meta(null, ``, () => {
-    //   return ``;
-    // })
+    new Meta(null, `productionedited`, () => {
+      return ``;
+    })
   ]
 };
 

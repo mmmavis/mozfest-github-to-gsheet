@@ -29,5 +29,8 @@ export default {
   ],
   productionflagged: [
     new Label(`[Production] Flagged`, `Flagged`)
+  ],
+  productionedited: [
+    new Label(`[Production] Edited`, `Edited`)
   ]
 };
